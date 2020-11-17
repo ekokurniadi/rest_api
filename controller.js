@@ -1,4 +1,4 @@
-'use-strict';
+'use strict';
 
 var response = require('./response');
 var connection = require('./koneksi');
