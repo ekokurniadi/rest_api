@@ -78,3 +78,15 @@ exports.deleteMahasiswa = function (req, res) {
             }
         })
 }
+
+// get nested array
+exports.tampilGroupMatakuliah = function (req, res) {
+    connection.query('select mahasiswa.id_mahasiswa,mahasiswa.nim,mahasiswa.nama,mahasiswa.jurusan,matakuliah.matakuliah,matakuliah.sks from krs join mahasiswa join matakuliah where krs.id_mahasiswa = mahasiswa.id_mahasiswa and krs.id_matakuliah = matakuliah.id_matakuliah',
+        function (error, rows, fields) {
+            if (error) {
+                console.log(error)
+            } else {
+                response.okNested(rows, res)
+            }
+        })
+}
